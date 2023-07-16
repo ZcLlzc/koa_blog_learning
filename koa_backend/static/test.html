@@ -7,5 +7,17 @@
   </head>
   <body>
     <div>测试koaStatic</div>
+    <!-- 测试跨域 -->
+    <script src="./axios.js"></script>
+    <!-- 这里直接右键 Open In Default Browser 打开后可以看到 file 协议下,能够请求 test 接口,证明跨域问题已解决-->
+    <script>
+      axios({
+        method: "get",
+        url: "http://localhost:3002/api/test",
+      }).then((res) => {
+        console.log("💕 ~ 测试跨域", res);
+        return {};
+      });
+    </script>
   </body>
 </html>

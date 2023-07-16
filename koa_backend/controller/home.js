@@ -4,7 +4,7 @@ module.exports = {
   async apiTest(ctx) {
     ctx.body = {
       code: 200,
-      message: "/api/test 路由测试!",
+      message: "/api/test 测试!",
     };
   },
 };

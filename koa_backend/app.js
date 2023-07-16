@@ -7,8 +7,13 @@ const router = require("./router");
 const mongoMiddleware = require("./middleware/mongodb");
 // 导入处理静态资源的中间件 - 托管中间件
 const koaStatic = require("koa-static");
+// 导入处理跨域的中间件
+const koaCros = require("@koa/cors");
 // 创建 koa 实例
 const app = new Koa();
+
+// 处理跨域
+app.use(koaCros());
 
 // 中间件：静态资源服务
 app.use(koaStatic("./static"));
