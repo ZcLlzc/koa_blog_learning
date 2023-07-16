@@ -3,6 +3,9 @@ const Koa = require("koa");
 const { koaBody } = require("koa-body");
 // 导入路由实例
 const router = require("./router");
+// 导入中间件工厂函数
+const mongoMiddleware = require("./middleware/mongodb");
+// 创建 koa 实例
 const app = new Koa();
 
 // 中间件：请求体参数处理
@@ -19,6 +22,9 @@ app.use(
     },
   })
 );
+
+// 中间件:mongoDB 数据库操作辅助 (将 mongoClient 挂到 ctx上)
+app.use(mongoMiddleware());
 
 // 中间件:路由相关
 app.use(router.routes());
