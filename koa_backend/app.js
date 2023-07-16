@@ -5,8 +5,13 @@ const { koaBody } = require("koa-body");
 const router = require("./router");
 // 导入中间件工厂函数
 const mongoMiddleware = require("./middleware/mongodb");
+// 导入处理静态资源的中间件 - 托管中间件
+const koaStatic = require("koa-static");
 // 创建 koa 实例
 const app = new Koa();
+
+// 中间件：静态资源服务
+app.use(koaStatic("./static"));
 
 // 中间件：请求体参数处理
 app.use(
