@@ -11,8 +11,13 @@ const koaStatic = require("koa-static");
 const koaCros = require("@koa/cors");
 // 导入错误处理中间件
 const koaError = require("koa-json-error");
+// 导入参数校验中间件
+const koaParameter = require("koa-parameter");
 // 创建 koa 实例
 const app = new Koa();
+
+// 中间件:请求参数校验,加工过后,ctx 会多一个 verifyParams 方法
+koaParameter(app);
 
 // 处理跨域
 app.use(koaCros());

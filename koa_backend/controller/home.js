@@ -9,6 +9,9 @@ module.exports = {
     // 2.koa封装的抛出错误
     // return ctx.throw({ code: 401, message: "测试抛出错误信息!" });
 
+    // 测试请求参数
+    ctx.verifyParams({ username: "string" });
+
     ctx.body = {
       code: 200,
       message: "/api/test 测试!",
