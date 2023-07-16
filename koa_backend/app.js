@@ -9,6 +9,8 @@ const mongoMiddleware = require("./middleware/mongodb");
 const koaStatic = require("koa-static");
 // 导入处理跨域的中间件
 const koaCros = require("@koa/cors");
+// 导入错误处理中间件
+const koaError = require("koa-json-error");
 // 创建 koa 实例
 const app = new Koa();
 
@@ -29,6 +31,22 @@ app.use(
       uploadDir: "./static/uploads",
       // 保留上传文件后缀（默认的关闭）
       keepExtensions: true,
+    },
+  })
+);
+
+// 中间件：统一错误处理和错误信息输出
+app.use(
+  koaError({
+    // 自定义出错时，接口返回数据的格式
+    format: (err, obj) => {
+      if (obj.code === "INVALID_PARAM") {
+        return { code: 402, message: "参数不合法!" };
+      }
+      return {
+        code: obj.code || 500,
+        message: obj.message || err.message,
+      };
     },
   })
 );
