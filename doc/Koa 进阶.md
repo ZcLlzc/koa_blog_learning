@@ -2677,16 +2677,14 @@ Vite 和 Vue3.0 搭配的非常好，生成的脚手架代码紧跟 Vue3.0 发�
 1. 使用 npm 创建基于 Vite 的项目
 
 ```bash
-npm init @vitejs/app blog-frontend
+npm init vue@latest koa_frontend
 ```
 
 2. 在出现的选项中选择技术框架为 `vue`：
 
-<img src="Koa 进阶.assets/image-20210629095328448.png" alt="image-20210629095328448" style="zoom:50%;" />
+<img src="Koa 进阶.assets/290e834d0563439085eec1013aadcbe1.png" alt="image-20210629095328448" style="zoom:100%;" />
 
-3. 继续选择开发语言为 `TypeScript`：
-
-<img src="Koa 进阶.assets/image-20210629095558977.png" alt="image-20210629095558977" style="zoom:50%;" />
+3.[(22条消息) Vue3 + Vite + Element Plus 项目搭建（全）_YanaDH的博客-CSDN博客](https://blog.csdn.net/weixin_36757282/article/details/130521812)
 
 4. 进入生成的项目目录，安装依赖
 

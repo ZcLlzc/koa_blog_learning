@@ -1,0 +1,51 @@
+// 文本部分
+// 字体编码
+@mixin font($num) {
+  font-size: $num + px;
+}
+// 文本最多显示N行，超出部分隐藏显示...
+@mixin line-clamp($num: 1, $width: 100%) {
+  width: $width;
+  word-break: break-all;
+  overflow: hidden;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $num;
+  -webkit-box-orient: vertical;
+}
+
+// 布局部分
+// flex布局 默认居中
+@mixin flex($justify: center, $align: center) {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: $justify; // flex-start | flex-end | center | space-between | space-around
+  align-items: $align; // flex-start | flex-end | center | baseline | stretch
+}
+// position居中
+@mixin position-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+// 浮动
+@mixin float($layout: left) {
+  float: $layout;
+}
+
+// 其他样式
+// 设置宽高
+@mixin wh($width, $height) {
+  width: $width + px;
+  height: $height + px;
+}
