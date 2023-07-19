@@ -19,9 +19,10 @@
     "koa": "^2.14.2",
     "koa-body": "^6.0.1",
     "koa-json-error": "^3.1.2",
+    "koa-jwt": "^4.0.4",
     "koa-parameter": "^3.0.1",
     "koa-static": "^5.0.0",
-    "svg-captcha": "^1.4.0",
-    "mongodb": "^4.13.0"
+    "mongodb": "^4.13.0",
+    "svg-captcha": "^1.4.0"
   }
 }

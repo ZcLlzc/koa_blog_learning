@@ -17,4 +17,12 @@ module.exports = {
       message: "/api/test 测试!",
     };
   },
+
+  // 测试鉴权函数
+  async signTest(ctx) {
+    ctx.body = {
+      code: 200,
+      message: "/api/user/test 鉴权测试!",
+    };
+  },
 };

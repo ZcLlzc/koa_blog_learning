@@ -13,6 +13,10 @@ const koaCros = require("@koa/cors");
 const koaError = require("koa-json-error");
 // 导入参数校验中间件
 const koaParameter = require("koa-parameter");
+// 导入解析 token 的中间件(解析请求头)
+const koaJwt = require("koa-jwt");
+// 导入配置文件
+const config = require("./config/config.default");
 // 创建 koa 实例
 const app = new Koa();
 
@@ -58,6 +62,17 @@ app.use(
 
 // 中间件:mongoDB 数据库操作辅助 (将 mongoClient 挂到 ctx上)
 app.use(mongoMiddleware());
+
+// 中间件接口鉴权
+app.use(
+  koaJwt({
+    secret: config.jwt.secret,
+    debug: true, // 开启debug可以看到准确的错误信息
+  }).unless({
+    // 所有的 /api/user 开头的都需要鉴权,只有后面不是 user 的排除掉
+    path: [/^\/api\/(?!user)/],
+  })
+);
 
 // 中间件:路由相关
 app.use(router.routes());
