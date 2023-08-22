@@ -17,7 +17,7 @@ const { DEV, VITE_PROXY_DOMAIN, VITE_PROXY_DOMAIN_REAL } = import.meta.env
 // 创建http实例
 const instance = axios.create({
   baseURL: DEV ? VITE_PROXY_DOMAIN : VITE_PROXY_DOMAIN_REAL,
-  timeout: 2000,
+  timeout: 30000,
   headers: {
     'Content-Type': 'application/json;charset=UTF-8'
   }
@@ -28,7 +28,7 @@ instance.interceptors.request.use((config) => {
   config.headers = config.headers || {}
   const token = useUserStoreHook().token
   if (token) {
-    config.headers['User-Token'] = token
+    config.headers['Authorization'] = token
   }
   return config
 })

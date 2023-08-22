@@ -99,7 +99,7 @@ const menuList = [
   }
 }
 // 子菜单高亮时，使其父菜单也高亮
-.el-menu ::v-deep(.el-sub-menu.is-active > .el-sub-menu__title) {
+.el-menu :deep(.el-sub-menu.is-active > .el-sub-menu__title) {
   color: var(--el-color-primary);
 }
 </style>

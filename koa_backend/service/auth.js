@@ -106,8 +106,14 @@ async function doLogin(ctx, userInfo) {
   const token = jwtoken.sign(payload, secretKey, options);
   return token;
 }
+
+async function doLogout(ctx,userInfo){
+  
+
+}
 module.exports = {
   doRegister,
   gengerateCaptcha,
   doLogin,
+  doLogout
 };

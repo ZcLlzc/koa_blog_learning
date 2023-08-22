@@ -6,7 +6,7 @@ const router = new Router();
 
 // 导入 controller 控制器
 const { apiTest, signTest } = require("../controller/home");
-const { register, captcha, login } = require("../controller/auth");
+const { register, captcha, login, logout } = require("../controller/auth");
 
 // 配置测试路由
 // 测试接口
@@ -19,4 +19,7 @@ router.post("/api/register", register);
 router.get("/api/captcha", captcha);
 // 登录接口
 router.post("/api/login", login);
+// 登出
+router.get("/api/user/logout", logout);
+
 module.exports = router;

@@ -79,4 +79,4 @@ app.use(router.routes());
 // 请求错误的时候,会有比较友好的提示
 app.use(router.allowedMethods());
 
-app.listen(8000, () => console.log("启动成功,http://localhost:8000"));
+app.listen(3002, () => console.log("启动成功,http://localhost:3002"));

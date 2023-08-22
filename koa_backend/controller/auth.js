@@ -1,4 +1,4 @@
-const { doRegister, gengerateCaptcha, doLogin } = require("../service/auth");
+const { doRegister, gengerateCaptcha, doLogin, doLogout } = require("../service/auth");
 
 module.exports = {
   /**
@@ -37,6 +37,11 @@ module.exports = {
     };
   },
 
+  /**
+   * @description: 登录
+   * @param {*} ctx
+   * @return {*}
+   */  
   async login(ctx) {
     const result = await doLogin(ctx, ctx.request.body);
 
@@ -46,4 +51,13 @@ module.exports = {
       data: result,
     };
   },
+
+  async logout (ctx){
+    await doLogout(ctx,ctx.request.query)
+
+    ctx.body = {
+      code: 200,
+      message: "登出成功!",
+    };
+  }
 };
